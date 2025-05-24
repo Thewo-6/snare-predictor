@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SNARE Predictor</title>
+</head>
+<body>
+  <h1>SNARE Predictor</h1>
+  <form method="post">
+    <textarea name="sequence" rows="6" cols="60" placeholder=">seq1\nMKT..."></textarea><br>
+    <button type="submit">Predict</button>
+  </form>
+  {% if prediction %}
+    <p><strong>Result:</strong> {{ prediction }}</p>
+  {% endif %}
+</body>
+</html>
