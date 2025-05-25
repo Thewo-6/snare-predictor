@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+env/
+venv/
+*.egg-info/
+model_pipeline/
+.vscode/
+.DS_Store
