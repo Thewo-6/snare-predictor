@@ -14,10 +14,10 @@ NUM_CLASSES = 2
 model = DeepScan(
     num_filters=256,
     num_hidden=128,
-    window_sizes=[8, 16, 24, 32, 40, 48]  # ✅ match training
+    window_sizes=[8, 16, 24, 32, 40, 48]  # match training
 )
-_ = model(tf.random.normal([1, 1, MAXSEQ, NUM_FEATURE])) # ✅ Build the model by calling it once with dummy input
-model.load_weights("/model_pipeline/weights.09.weights.h5")  # ✅ Adjust if you use another weights file
+_ = model(tf.random.normal([1, 1, MAXSEQ, NUM_FEATURE])) # Build the model by calling it once with dummy input
+model.load_weights("/model_pipeline/weights.09.weights.h5")  # Adjust if you use another weights file
 
 # === Prediction Interface ===
 def predict_snare(fasta_seq):
