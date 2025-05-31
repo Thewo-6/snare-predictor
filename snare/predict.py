@@ -17,7 +17,7 @@ model = DeepScan(
     window_sizes=[8, 16, 24, 32, 40, 48]  # match training
 )
 _ = model(tf.random.normal([1, 1, MAXSEQ, NUM_FEATURE])) # Build the model by calling it once with dummy input
-model.load_weights("/model_pipeline/weights.09.weights.h5")  # Adjust if you use another weights file
+model.load_weights("snare/logs/weights.09.weights.h5")  # Adjust if you use another weights file
 
 # === Prediction Interface ===
 def predict_snare(fasta_seq):

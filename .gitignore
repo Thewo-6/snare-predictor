@@ -16,7 +16,7 @@ __pycache__/
 *.ckpt
 
 # Keep the final model for deployment
-!model_pipeline/weights.09.weights.h5
+!snare/logs/weights.09.weights.h5
 
 # =====================================
 # Logs and results
