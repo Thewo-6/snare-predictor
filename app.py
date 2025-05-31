@@ -19,7 +19,7 @@ app = Flask(__name__)
 # Load model
 model = DeepScan(num_filters=256, num_hidden=128)
 _ = model(tf.random.normal([1, 1, MAXSEQ, NUM_FEATURE]))  # Build model
-model.load_weights("model_pipeline/weights.09.weights.h5")  # Update path if needed
+model.load_weights("snare/logs/weights.09.weights.h5")  # Update path if needed
 
 @app.route("/", methods=["GET", "POST"])
 def index():
