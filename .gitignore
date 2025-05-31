@@ -1,8 +1,54 @@
+# =====================================
+# Python cache and environment folders
+# =====================================
 __pycache__/
 *.py[cod]
-env/
-venv/
-*.egg-info/
-model_pipeline/
-.vscode/
+*.swp
+.venv/
+.env/
+
+# =====================================
+# Model weights and checkpoints
+# =====================================
+*.h5
+*.pkl
+*.pt
+*.ckpt
+
+# Keep the final model for deployment
+!model_pipeline/weights.09.weights.h5
+
+# =====================================
+# Logs and results
+# =====================================
+*.log
+logs/
+results/
+
+# =====================================
+# Datasets and generated data
+# =====================================
+dataset/
+pssm/
+data/
+
+# =====================================
+# Jupyter notebook checkpoints
+# =====================================
+.ipynb_checkpoints/
+
+# =====================================
+# OS and IDE files
+# =====================================
 .DS_Store
+.vscode/
+.idea/
+
+# =====================================
+# Static analysis or testing artifacts
+# =====================================
+coverage/
+htmlcov/
+*.coverage
+.cache/
+pytest_cache/

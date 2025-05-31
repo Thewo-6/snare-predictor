@@ -1,78 +1,93 @@
-SNARE Predictor
+# 🧠 SNARE Protein Predictor
 
-A web-based tool for predicting SNARE‑motif proteins from amino acid FASTA sequences, built with Flask and scikit‑learn.
+This project is a deep learning-based web application for predicting whether a given protein sequence is a SNARE or non-SNARE protein. It combines a PSI-BLAST-powered PSSM feature generator with a DeepScan CNN model trained on protein sequences.
 
-Features
+## 🚀 Features
 
-Amino Acid Composition (AAC) and Dipeptide Composition (DPC) feature extraction
+- 🧬 Accepts input in FASTA format via form or file upload
+- 🧠 Predicts SNARE protein likelihood using a DeepScan CNN model
+- 📊 Logs metrics: Sensitivity, Specificity, Accuracy, MCC
+- 🌐 Flask frontend with modern UI (demo mode supported)
+- ⚙️ Modular Python architecture for flexibility and deployment
 
-Support Vector Machine (SVM) classification
+---
 
-Simple Flask web interface for sequence input and prediction
+## 📂 Project Structure
 
-Repository Structure
-
-snare-web/
-├── app.py                  # Flask application
-├── features.py             # AACTransformer & DPCTransformer classes
-├── train_and_pickle.py     # Train & pickle the feature pipeline + model
-├── model_pipeline/         # Saved pipeline and model
-│   └── feature_pipeline.pkl
-├── data/
-│   ├── train_snare.fasta
-│   ├── train_non_snare.fasta
-│   ├── test_snare.fasta
-│   └── test_non_snare.fasta
-├── static/                 # CSS, JS, and background image assets
+```
+snare-predictor/
+├── app.py                   # Flask entrypoint
+├── snare/                   # Core Python logic
+│   ├── __init__.py
+│   ├── model.py             # DeepScan CNN definition
+│   ├── predict.py           # Inference logic
+│   ├── utils.py             # PSI-BLAST + PSSM feature encoder
+│   
+├── static/                  # CSS and image assets
+│   └── css/
+│       └── styles.css
+│   └── img/
+│       └── hero.jpg
 ├── templates/
-│   └── index.html          # Main entrypoint template
-├── requirements.txt        # Python dependencies
-└── README.md               # This file
+│   └── index.html           # Main HTML interface
+├── requirements.txt         # Dependencies
+├── .gitignore               # Clean-up rules
+├── test.py                  # Unit test for local testing
+├── training_scripts/        # Model training workflow
+│   └── snare_deepscan_training.py
+├── README.md                # You’re here
+└── dataset/, pssm/, results/
+```
 
-Installation
+---
 
-Clone the repository
+## 💡 Getting Started
 
-git clone https://github.com/ArriSnnow/snare-predictor.git
-cd snare-predictor/snare-web
-
-Create a virtual environment and activate it
-
-python3 -m venv venv
-source venv/bin/activate   # macOS/Linux
-venv\Scripts\activate     # Windows
-
-Install dependencies
-
+### 1. Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-Model Training
+### 2. Prepare BLAST Tools
+Make sure:
+- `psiblast` is installed
+- You have a valid BLAST database (e.g., SwissProt)
+- Update your path in `snare/utils.py`:
 
-Note: A pre-trained pipeline is provided in model_pipeline/feature_pipeline.pkl. To retrain from scratch:
+```python
+generate_pssm_from_fasta(seq, blast_db_path="/Users/yourname/blastdb/swissprot")
+```
 
-python train_and_pickle.py
+---
 
-This will:
+## 🧪 Try it Locally
 
-Read data/train_snare.fasta and data/train_non_snare.fasta
+### Web Interface:
+```bash
+python app.py
+```
+Visit: [http://localhost:5001](http://localhost:5001)
 
-Extract AAC & DPC features
+Paste a protein sequence:
+```fasta
+>seq1
+MENSDSSNNGG...
+```
+Or click **Try a Demo Sequence** in the navbar.
 
-Scale features and train an SVM
+---
 
-Save the pipeline to model_pipeline/feature_pipeline.pkl
+## 🧠 Model Summary
 
-Running the Web App
+- **Architecture**: DeepScan CNN with multi-scale convolutions
+- **Input**: 20-dim PSSM × 4980 residues (padded/truncated)
+- **Output**: Binary classification (SNARE / Non-SNARE)
+- **Accuracy**:
+  - Training: **91.9%**
+  - Validation: **90.4%**
+- **Weights Used**: `model_pipeline/weights.09.weights.h5`
 
-export FLASK_APP=app.py
-flask run --port 5001   # or python app.py
+---
 
-Open your browser at http://127.0.0.1:5001 (or the port you specified) to access the predictor.
-
-Usage
-
-Paste a FASTA sequence (with header line starting >) into the input box.
-
-Click Predict.
-
-View the result: SNARE or Non‑SNARE.
+## 🔗 Credits
+Built by **Arri Hantz Max Nurbolot** with support from **ChatGPT** ✨

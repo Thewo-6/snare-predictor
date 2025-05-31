@@ -1,59 +1,159 @@
-/* static/css/styles.css */
+/* General resets and layout */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-
-  background: url("/static/img/bg.jpg")
-              no-repeat center center fixed;
-  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+  color: #212529;
 }
 
-header {
-  background: rgba(0,112,243,0.9);
-  color: white;
+/* Navbar */
+.navbar {
+  background-color: #1e1e1e;
   padding: 1rem 2rem;
-  text-align: center;
-}
-
-.card {
-  max-width: 700px;
-  margin: 2rem auto;
-  background: rgba(255,255,255,0.95);
-  border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
-  overflow: hidden;
-}
-
-.card h2 {
-  margin: 0;
-  padding: 1rem;
-  background: #0070f3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: white;
 }
 
-.card form {
-  padding: 1rem;
+.navbar .brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
 }
 
-.btn-predict {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  background: #0070f3;
-  color: white;
+.navbar .predict-btn {
+  background: linear-gradient(to right, #ff9800, #ff5722);
   border: none;
-  border-radius: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.btn-predict:hover {
-  background: #005bb5;
+.navbar .predict-btn:hover {
+  background: linear-gradient(to right, #ff7043, #ffab40);
 }
 
+/* Hero section */
+.hero {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/static/img/hero.jpg') center center / cover no-repeat;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 1rem;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Card container */
+.container {
+  max-width: 800px;
+  margin: -100px auto 2rem auto;
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Form elements */
+form label {
+  font-weight: 600;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+textarea {
+  width: 100%;
+  height: 160px;
+  resize: vertical;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+input[type="file"] {
+  margin-top: 0.5rem;
+}
+
+/* Predict Button */
+button[type="submit"] {
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(to right, #ff6f61, #ff8a65);
+}
+
+/* Results section */
+.result {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.result.success {
+  background-color: #e3fcef;
+  color: #2e7d32;
+  border: 1px solid #81c784;
+}
+
+.result.error {
+  background-color: #fdecea;
+  color: #c62828;
+  border: 1px solid #ef5350;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  margin: 2rem 0;
-  color: rgba(0,0,0,0.6);
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: #6c757d;
 }
 
+footer a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
