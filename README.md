@@ -85,7 +85,7 @@ Or click **Try a Demo Sequence** in the navbar.
 - **Accuracy**:
   - Training: **91.9%**
   - Validation: **90.4%**
-- **Weights Used**: `model_pipeline/weights.09.weights.h5`
+- **Weights Used**: `snare/logs/weights.09.weights.h5`
 
 ---
 
