@@ -90,9 +90,7 @@ Or click **Try a Demo Sequence** in the navbar.
 ---
 
 ## 🔗 Credits
-Built by **Arri Hantz Max Nurbolot** with support from **ChatGPT** ✨
-Inspired from:
-  Identifying SNARE Proteins Using an Alignment-Free Method Based
-  on Multiscan Convolutional Neural Network and PSSM Profiles.
-
-  By: Quang-Hien Kha, Quang-Thai Ho, and Nguyen Quoc Khanh Lee
+Built by **Arri Hantz Max Nurbolot**, with support from ChatGPT ✨
+**Inspired by:**
+“Identifying SNARE Proteins Using an Alignment-Free Method Based on Multiscan Convolutional Neural Network and PSSM Profiles”
+by **Quang-Hien Kha, Quang-Thai Ho, and Nguyen Quoc Khanh Lee**
