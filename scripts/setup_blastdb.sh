@@ -14,7 +14,6 @@ chmod +x bin/psiblast
 
 echo "🧹 Cleaning up..."
 rm -rf ncbi-blast-2.14.1+*
-rm ncbi-blast-2.14.1+-x64-linux.tar.gz
 
 echo "✅ psiblast is ready."
 
