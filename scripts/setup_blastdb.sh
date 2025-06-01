@@ -1,24 +1,25 @@
 #!/bin/bash
 set -e
 
-echo "🔄 Downloading and extracting psiblast..."
+echo "🔄 Creating bin folder..."
+mkdir -p bin
 
-# Download Linux-compatible BLAST+ tools
-curl -LO https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-*-x64-linux.tar.gz
+echo "🔄 Downloading Linux-compatible BLAST+ tools..."
+curl -LO https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.14.1/ncbi-blast-2.14.1+-x64-linux.tar.gz
 
-# Extract and move only psiblast
-tar -xzf ncbi-blast-*-x64-linux.tar.gz
-mv ncbi-blast-*/bin/psiblast bin/psiblast
+echo "📦 Extracting..."
+tar -xzf ncbi-blast-2.14.1+-x64-linux.tar.gz
+mv ncbi-blast-2.14.1+/bin/psiblast bin/
 chmod +x bin/psiblast
 
-# Clean up
-rm -rf ncbi-blast-*
+echo "🧹 Cleaning up..."
+rm -rf ncbi-blast-2.14.1+*
 rm ncbi-blast-2.14.1+-x64-linux.tar.gz
 
-echo "✅ psiblast ready!"
+echo "✅ psiblast is ready."
 
-echo "🔄 Setting up SwissProt DB..."
+# Optional: also setup the database
+echo "🔄 Setting up SwissProt BLAST DB..."
 mkdir -p blastdb
 cd blastdb
 docker run --rm -v $(pwd):/blastdb ncbi/blast update_blastdb.pl --decompress --passive swissprot
-echo "✅ SwissProt DB ready!"
