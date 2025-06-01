@@ -54,6 +54,7 @@ def generate_pssm_from_fasta(
             psiblast_path,
             "-query", fasta_path,
             "-db", blast_db_path,
+            "-num_threads", "1",
             "-num_iterations", "3",
             "-out_ascii_pssm", pssm_path,
             "-out", blast_output
