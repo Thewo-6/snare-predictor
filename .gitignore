@@ -1,5 +1,5 @@
 # =====================================
-# Python cache and environment folders
+# Python cache and environments
 # =====================================
 __pycache__/
 *.py[cod]
@@ -13,39 +13,31 @@ __pycache__/
 *.pkl
 *.pt
 *.ckpt
-
-# Keep the final model for deployment
-!snare/logs/weights.09.weights.h5
+!snare/logs/weights.09.weights.h5  # keep final model for deployment
 
 # =====================================
 # Logs and results
 # =====================================
-*.log
-logs/
 results/
 
 # =====================================
 # Datasets and generated data
-# =====================================
-dataset/
+# Uncomment only if you're sure they aren't needed at runtime
+dataset/*
+!dataset/sample_sequences.fasta
+data/*
+!data/labels.csv
 pssm/
-data/
 
 # =====================================
-# Jupyter notebook checkpoints
-# =====================================
+# Jupyter
 .ipynb_checkpoints/
 
 # =====================================
-# OS and IDE files
-# =====================================
+# OS / IDE / Testing
 .DS_Store
 .vscode/
 .idea/
-
-# =====================================
-# Static analysis or testing artifacts
-# =====================================
 coverage/
 htmlcov/
 *.coverage

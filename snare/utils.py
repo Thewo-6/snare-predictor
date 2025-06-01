@@ -6,10 +6,20 @@ import numpy as np
 MAXSEQ = 4980
 NUM_FEATURE = 20
 
+# Path to current file (e.g., snare/utils.py)
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Project root: one level up from snare/
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
+
+# Paths relative to project structure
+DEFAULT_BLAST_DB_PATH = os.path.join(PROJECT_ROOT, "blastdb", "swissprot")
+DEFAULT_PSIBLAST_PATH = os.path.join(PROJECT_ROOT, "bin", "psiblast")
+
 def generate_pssm_from_fasta(
     fasta_seq,
-    blast_db_path="/Users/maxallywolftheresias/blastdb/swissprot",
-    psiblast_path="/opt/homebrew/bin/psiblast"
+    blast_db_path=DEFAULT_BLAST_DB_PATH,
+    psiblast_path=DEFAULT_PSIBLAST_PATH
 ):
     """
     Generate a PSSM feature vector from a FASTA string using PSI-BLAST.
