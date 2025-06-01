@@ -12,13 +12,17 @@ tar -xzf ncbi-blast-2.14.1+-x64-linux.tar.gz
 mv ncbi-blast-2.14.1+/bin/psiblast bin/
 chmod +x bin/psiblast
 
-echo "🧹 Cleaning up..."
+echo "🧹 Cleaning up BLAST+ package..."
 rm -rf ncbi-blast-2.14.1+*
 
 echo "✅ psiblast is ready."
 
-# Optional: also setup the database
-echo "🔄 Setting up SwissProt BLAST DB..."
+# 🔄 Now download SwissProt directly
+echo "🔽 Downloading SwissProt BLAST DB..."
 mkdir -p blastdb
 cd blastdb
-docker run --rm -v $(pwd):/blastdb ncbi/blast update_blastdb.pl --decompress --passive swissprot
+curl -O ftp://ftp.ncbi.nlm.nih.gov/blast/db/swissprot.tar.gz
+tar -xzf swissprot.tar.gz
+rm swissprot.tar.gz
+
+echo "✅ SwissProt BLAST DB ready!"
