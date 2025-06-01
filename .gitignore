@@ -6,6 +6,7 @@ __pycache__/
 *.swp
 .venv/
 .env/
+blastdb/
 
 # =====================================
 # Model weights and checkpoints
